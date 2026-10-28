@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Kurukulla Design Directions</title>
+<meta name="description" content="Three design directions for the Kurukulla Center website, prepared by Mindful Design.">
+<link rel="icon" href="assets/img/emblem-240.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500&family=Public+Sans:wght@400&family=Geist:wght@400;600&family=Instrument+Serif&family=Albert+Sans:wght@400&display=swap">
+<style>
+/* Layout: a quiet studio folio. Cover, brief, research, three direction chapters with live previews,
+   care notes, comparison, next steps. The folio stays neutral so the three directions carry the colour. */
+:root {
+  --bg: #F6F5F2;
+  --bg-2: #ECEAE5;
+  --card: #FFFFFF;
+  --fg: #1C1B19;
+  --fg-soft: #5E5A53;
+  --line: #DCD8D0;
+  --accent: #7A1B12;        /* Kurukulla maroon, for links and focus only */
+  --frame: #2A2826;
+  --font: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r: 14px;
+  --shadow: 0 1px 1px rgba(40,30,20,.04), 0 12px 32px -12px rgba(40,30,20,.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161514; --bg-2: #1F1E1C; --card: #23221F; --fg: #EFECE6; --fg-soft: #A8A298;
+    --line: #36332F; --accent: #E89A8C; --frame: #0E0D0C;
+    --shadow: 0 1px 1px rgba(0,0,0,.3), 0 16px 40px -16px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161514; --bg-2: #1F1E1C; --card: #23221F; --fg: #EFECE6; --fg-soft: #A8A298;
+  --line: #36332F; --accent: #E89A8C; --frame: #0E0D0C;
+  --shadow: 0 1px 1px rgba(0,0,0,.3), 0 16px 40px -16px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--accent); color: var(--card); }
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+img { display: block; max-width: 100%; height: auto; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-soft); }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 600; letter-spacing: -.02em; line-height: 1.08; }
+p { text-wrap: pretty; margin: 0; }
+
+.bar { position: sticky; top: 0; z-index: 20; background: color-mix(in oklab, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+.bar b { font-weight: 600; font-size: 14px; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.bar b img { width: 28px; }
+.bar nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.bar b { flex-shrink: 0; }
+.bar nav a { text-decoration: none; font-size: 14px; color: var(--fg-soft); padding: 6px 10px; border-radius: 999px; white-space: nowrap; transition: background-color .15s, color .15s; }
+.bar nav a:hover { background: var(--bg-2); color: var(--fg); }
+@media (max-width: 640px) { .bar b span { display: none; } }
+
+.cover { padding-block: clamp(56px, 10vw, 120px) clamp(40px, 6vw, 72px); }
+.cover-grid { display: grid; gap: 36px; }
+@media (min-width: 960px) { .cover-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; } }
+.cover h1 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); max-width: 14ch; letter-spacing: -.035em; line-height: .98; margin-top: 18px; }
+.cover .lede { margin-top: 24px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--fg-soft); max-width: 58ch; }
+.cover .meta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.cover .meta div { display: grid; gap: 2px; }
+.cover .meta strong { font-weight: 500; font-size: 15px; }
+.note { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 12px; box-shadow: var(--shadow); }
+.note p { color: var(--fg-soft); font-size: 15px; }
+.note p:first-of-type { color: var(--fg); font-size: 16px; }
+.note .sig { font-size: 14px; color: var(--fg); }
+
+.brief { padding-block: 8px clamp(56px, 8vw, 96px); }
+.grid4 { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid4 > div { background: var(--card); padding: 24px; display: grid; gap: 8px; align-content: start; }
+.grid4 h3 { font-size: 1.1rem; letter-spacing: -.01em; }
+.grid4 p { color: var(--fg-soft); font-size: 15px; }
+@media (max-width: 1000px) { .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grid4 { grid-template-columns: minmax(0, 1fr); } }
+
+.overview, .research { padding-block: 0 clamp(64px, 9vw, 112px); }
+.section-head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 62ch; }
+.section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.section-head p { color: var(--fg-soft); }
+.tiles { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.tile { display: grid; gap: 14px; text-decoration: none; color: inherit; align-content: start; }
+.tile .shot { aspect-ratio: 16 / 10; border-radius: var(--r); overflow: hidden; background: var(--bg-2); box-shadow: var(--shadow); }
+.tile .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s cubic-bezier(.23,1,.32,1); }
+@media (hover: hover) and (pointer: fine) { .tile:hover .shot img { transform: scale(1.03); } }
+@media (prefers-reduced-motion: reduce) { .tile .shot img { transition: none; } }
+.tile .t-row { display: flex; align-items: baseline; gap: 12px; }
+.tile .letter { font-family: var(--mono); font-size: 13px; color: var(--fg-soft); }
+.tile h3 { font-size: 1.45rem; }
+.tile p { color: var(--fg-soft); font-size: 15px; }
+.ref .used { font-size: 13px; color: var(--accent); font-weight: 500; }
+.ref p { font-size: 15px; color: var(--fg) !important; }
+
+.dir { padding-block: clamp(64px, 9vw, 112px); border-top: 1px solid var(--line); }
+.dir-head { display: grid; gap: 28px; margin-bottom: 36px; }
+@media (min-width: 960px) { .dir-head { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: end; } }
+.dir-head h2 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.03em; margin-top: 10px; }
+.dir-head .tag { margin-top: 14px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--fg-soft); max-width: 48ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.chips span { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg-soft); }
+.specimen { display: grid; gap: 16px; }
+.swatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.swatches div { aspect-ratio: 1 / 1.15; padding: 8px; display: flex; align-items: flex-end; }
+.swatches code { font-family: var(--mono); font-size: 10.5px; letter-spacing: .02em; }
+@media (max-width: 520px) { .swatches code { font-size: 8.5px; } }
+.typo { display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; padding: 16px 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.typo .aa { font-size: 44px; line-height: 1; }
+.typo .names { display: grid; gap: 2px; font-size: 14px; color: var(--fg-soft); }
+.typo .names strong { color: var(--fg); font-weight: 500; }
+.dir-body { display: grid; gap: 36px; }
+@media (min-width: 1100px) { .dir-body { grid-template-columns: 300px minmax(0, 1fr); } }
+.notes { display: grid; gap: 22px; align-content: start; }
+.notes h3 { font-size: 1rem; letter-spacing: 0; margin-bottom: 4px; }
+.notes p { color: var(--fg-soft); font-size: 15px; }
+.notes .sig h3 { color: var(--accent); }
+
+.preview { min-width: 0; }
+.pv-tools { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.seg { display: inline-flex; padding: 3px; gap: 2px; background: var(--bg-2); border-radius: 999px; }
+.seg button { font: inherit; font-size: 14px; border: 0; background: transparent; color: var(--fg-soft); padding: 6px 14px; border-radius: 999px; cursor: pointer; transition: background-color .15s, color .15s; min-height: 34px; }
+.seg button[aria-pressed="true"] { background: var(--card); color: var(--fg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.open-link { font-size: 14px; color: var(--accent); text-decoration: none; white-space: nowrap; font-weight: 500; }
+.open-link:hover { text-decoration: underline; }
+.frame { background: var(--frame); border-radius: 16px; padding: 10px; box-shadow: var(--shadow); }
+.frame .chrome { display: flex; gap: 6px; padding: 2px 6px 10px; align-items: center; }
+.frame .chrome i { width: 10px; height: 10px; border-radius: 50%; background: #4a4642; display: block; }
+.frame .chrome span { margin-left: 10px; font-family: var(--mono); font-size: 11px; color: #A8A197; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.viewport { position: relative; overflow: hidden; border-radius: 8px; background: #fff; }
+.viewport iframe { border: 0; display: block; transform-origin: 0 0; background: #fff; }
+.frame.mobile { width: min(100%, 360px); margin: 0 auto; border-radius: 40px; padding: 12px; }
+.frame.mobile .chrome { justify-content: center; padding-bottom: 8px; }
+.frame.mobile .chrome i { display: none; }
+.frame.mobile .chrome span { margin: 0; }
+.frame.mobile .viewport { border-radius: 28px; }
+.pv-hint { margin-top: 10px; font-size: 13px; color: var(--fg-soft); }
+
+.care, .compare, .shared, .next { padding-block: clamp(64px, 9vw, 112px); border-top: 1px solid var(--line); }
+.care-grid { display: grid; gap: 28px; }
+@media (min-width: 960px) { .care-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: start; } }
+.care-photos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.care-photos figure { margin: 0; }
+/* holy images are never cropped: each sits whole inside the same tall frame */
+.care-photos img { border-radius: 10px; aspect-ratio: 9 / 16; object-fit: contain; width: 100%; background: var(--bg-2); }
+.care-photos figcaption { font-size: 12.5px; color: var(--fg-soft); margin-top: 6px; }
+.rules { list-style: none; margin: 0; padding: 0; display: grid; }
+.rules li { display: grid; gap: 4px; padding: 16px 0; border-top: 1px solid var(--line); }
+.rules li:last-child { border-bottom: 1px solid var(--line); }
+.rules b { font-weight: 600; }
+.rules span { color: var(--fg-soft); font-size: 15px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+tr:last-child td, tr:last-child th { border-bottom: 0; }
+thead th { font-weight: 600; font-size: 15px; background: var(--bg-2); }
+tbody th { font-weight: 500; color: var(--fg-soft); width: 18%; }
+.dots { letter-spacing: 2px; font-family: var(--mono); }
+
+.shared-grid { display: grid; gap: 28px 40px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.shared-grid h3 { font-size: 1.1rem; margin-bottom: 6px; letter-spacing: -.01em; }
+.shared-grid p { color: var(--fg-soft); font-size: 15px; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.steps li { background: var(--card); padding: 24px; display: grid; gap: 8px; align-content: start; }
+.steps .n { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.steps h3 { font-size: 1.15rem; }
+.steps p { color: var(--fg-soft); font-size: 15px; }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.contact { margin-top: 28px; font-size: 16px; }
+footer { padding-block: 40px 56px; color: var(--fg-soft); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <b><img src="assets/img/emblem-240.webp" alt="" width="28" height="20">kurukulla.org <span>· Design directions</span></b>
+    <nav aria-label="Sections">
+      <a href="#brief">Brief</a>
+      <a href="#research">Research</a>
+      <a href="#hearth">A Hearth</a>
+      <a href="#clear-light">B Clear Light</a>
+      <a href="#sanctuary">C Sanctuary</a>
+      <a href="#care">Holy images</a>
+      <a href="#compare">Compare</a>
+      <a href="#next">Next steps</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cover">
+    <div class="wrap cover-grid">
+      <div>
+        <p class="label">Kurukulla Center for Tibetan Buddhist Studies · Medford, MA</p>
+        <h1>Three directions for kurukulla.org</h1>
+        <p class="lede">Three ways the center's website could look and feel, each built as a full, working homepage with Kurukulla's own programme, words and photographs. Open them on your phone, scroll them, and see which one feels most like the yellow house on Magoun Avenue.</p>
+        <div class="meta">
+          <div><span class="label">Prepared</span><strong>28 October 2026</strong></div>
+          <div><span class="label">Per direction</span><strong>A complete homepage</strong></div>
+          <div><span class="label">Content</span><strong>Live programme from kurukulla.org</strong></div>
+        </div>
+      </div>
+      <aside class="note" aria-label="A note from Mindful Design">
+        <p class="label">An invitation</p>
+        <p>We are Mindful Design, a small team of Dharma practitioners who build websites for Buddhist centers, including FPMT centers.</p>
+        <p>Kurukulla's site has served the community faithfully for many years, and everything in it is still here: the weekly rhythm, Geshe-la's teachings, the pujas, the stupa. These pages are simply an offering of what it could become, made with care and with no obligation.</p>
+        <p class="sig">Matt and the Mindful Design team</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="brief" id="brief">
+    <div class="wrap">
+      <div class="grid4">
+        <div><span class="label">Keep</span><h3>The weekly rhythm</h3><p>“This Week at Kurukulla” is the heart of the current homepage and the weekly email. Every direction leads with it, kept up to date from one calendar.</p></div>
+        <div><span class="label">Show</span><h3>Teacher, lineage, stupa</h3><p>Geshe Tenley, the lineage of Lama Yeshe and Lama Zopa Rinpoche, and the Kalachakra Stupa for World Peace, in photographs good enough to carry them.</p></div>
+        <div><span class="label">Clarify</span><h3>In person or online</h3><p>Most teachings and pujas are hybrid, some are online only, prostrations are in person. Every event says how to join, everywhere it appears.</p></div>
+        <div><span class="label">Sustain</span><h3>Dana, clearly</h3><p>An all-volunteer center costing $8,000 to $9,000 a month. Membership and giving are explained plainly, close to where people decide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The three directions at a glance</h2>
+        <p>Each has its own palette, typography, layout and way of moving as you scroll. All three use the same real content, so the difference is only in how it feels.</p>
+      </div>
+      <div class="tiles">
+        <a class="tile" href="#hearth">
+          <div class="shot"><img src="assets/shots/a-home.webp" alt="Direction A homepage: cream paper, maroon, a serif headline and the yellow house" loading="lazy" width="1200" height="750"></div>
+          <div class="t-row"><span class="letter">A</span><h3>Hearth</h3></div>
+          <p>A printed feature about the yellow house. Warm paper, maroon and saffron, a serif to read slowly.</p>
+        </a>
+        <a class="tile" href="#clear-light">
+          <div class="shot"><img src="assets/shots/b-home.webp" alt="Direction B homepage: light and clear, lapis blue, a live card showing the next event over the stupa garden" loading="lazy" width="1200" height="750"></div>
+          <div class="t-row"><span class="letter">B</span><h3>Clear Light</h3></div>
+          <p>The programme as the product. Calm, light and practical, built like a well-made app for phones.</p>
+        </a>
+        <a class="tile" href="#sanctuary">
+          <div class="shot"><img src="assets/shots/c-home.webp" alt="Direction C homepage: deep night blue, a serif headline and the stupa garden seen through an orange cloud window" loading="lazy" width="1200" height="750"></div>
+          <div class="t-row"><span class="letter">C</span><h3>Sanctuary</h3></div>
+          <p>An evening visit. Night blue and butter-lamp gold, and a scroll that walks you into the stupa garden.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="research" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What shaped them</h2>
+        <p>We read the whole of kurukulla.org and its programme, and looked at how well-regarded event, community and editorial sites present a schedule and invite people in (via Mobbin and 21st.dev).</p>
+      </div>
+      <div class="grid4">
+        <div class="ref"><span class="label">Kurukulla's weekly email</span><p>A day-by-day list of the week, with times, teachers and how to join. People already know it.</p><span class="used">Week in A, planner in B</span></div>
+        <div class="ref"><span class="label">TheyDo · Miro</span><p>Community events as a timeline grouped by day, so a week reads at a glance.</p><span class="used">A and B</span></div>
+        <div class="ref"><span class="label">Oku · Uxcel</span><p>A monthly and yearly toggle on membership, so the commitment feels as light as it really is.</p><span class="used">Membership in A, giving in B</span></div>
+        <div class="ref"><span class="label">Samara · Little Amps</span><p>Visit sections that pair one address, plain directions and a photograph of the actual door.</p><span class="used">Visit in all three</span></div>
+        <div class="ref"><span class="label">21st.dev scroll-reveal image</span><p>An image that opens from a rounded frame to full width as you scroll, so the first move feels like arriving.</p><span class="used">Arrival in C</span></div>
+        <div class="ref"><span class="label">21st.dev sticky scroll reveal</span><p>A picture that holds while the story beside it moves on, changing as each chapter arrives.</p><span class="used">Teacher in C, sticky columns in A</span></div>
+        <div class="ref"><span class="label">21st.dev horizontal gallery</span><p>Vertical scrolling drives a sideways rail of cards, then hands back to the page.</p><span class="used">Ways to practise in C</span></div>
+        <div class="ref"><span class="label">The Tibetan calendar</span><p>Pujas follow lunar days: Tara on the 8th, Guru Puja on the 10th and 25th, Medicine Buddha on the 15th.</p><span class="used">The lunar dial in B</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A -->
+  <section class="dir" id="hearth">
+    <div class="wrap">
+      <div class="dir-head">
+        <div>
+          <p class="label">Direction A · Warm and traditional</p>
+          <h2 style="font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.02em">Hearth</h2>
+          <p class="tag">Kurukulla as a printed feature. Chapters you read in order, from the welcome to the weekly programme, Geshe-la, the house and the stupa garden, with photographs set in their own columns and captioned.</p>
+          <div class="chips"><span>Familiar</span><span>Warm</span><span>Readable</span><span>Dignified</span></div>
+        </div>
+        <div class="specimen">
+          <div class="swatches">
+            <div style="background:#7A1B12;color:#FBF3E6"><code>#7A1B12</code></div>
+            <div style="background:#EDB23A;color:#2B1A12"><code>#EDB23A</code></div>
+            <div style="background:#FBF6EC;color:#2B1A12"><code>#FBF6EC</code></div>
+            <div style="background:#F3EADA;color:#2B1A12"><code>#F3EADA</code></div>
+            <div style="background:#2D5DA8;color:#FFFFFF"><code>#2D5DA8</code></div>
+            <div style="background:#2B1A12;color:#FBF6EC"><code>#2B1A12</code></div>
+          </div>
+          <div class="typo">
+            <span class="aa" style="font-family:'Fraunces',Georgia,serif;font-weight:500">Aa</span>
+            <span class="aa" style="font-family:'Public Sans',sans-serif;font-size:34px">Aa</span>
+            <div class="names"><strong>Fraunces</strong><span>headings · Public Sans text</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-body">
+        <div class="notes">
+          <div><h3>Hero</h3><p>A title page: the headline on warm paper, then the yellow house in a wide frame that drifts gently as you scroll.</p></div>
+          <div><h3>Programme</h3><p>“This week at Kurukulla”, day by day, exactly like the weekly email. The day name stays in view while its events pass; holy days are marked in saffron.</p></div>
+          <div class="sig"><h3>Signature: the prayer-flag line</h3><p>Under the header hangs a line of prayer flags. As you reach each chapter, a set of five (blue, white, red, green, yellow) is raised. Tap a set to jump to its chapter.</p></div>
+          <div><h3>Best if</h3><p>The community should recognise the center at once, and the site should feel like the house: warm, unhurried, a little traditional.</p></div>
+        </div>
+        <div class="preview" data-dir="a"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B -->
+  <section class="dir" id="clear-light">
+    <div class="wrap">
+      <div class="dir-head">
+        <div>
+          <p class="label">Direction B · Modern and practical</p>
+          <h2 style="font-family:'Geist',sans-serif;font-weight:600;letter-spacing:-.04em">Clear Light</h2>
+          <p class="tag">The programme is the product. Light, calm and built like a well-made app: what is on next, a two-week planner, the lunar month, and a clear path for newcomers. On a phone it has a tab bar, like an app.</p>
+          <div class="chips"><span>Clear</span><span>Practical</span><span>Mobile first</span><span>Friendly</span></div>
+        </div>
+        <div class="specimen">
+          <div class="swatches">
+            <div style="background:#1F3D8F;color:#FFFFFF"><code>#1F3D8F</code></div>
+            <div style="background:#0B7363;color:#FFFFFF"><code>#0B7363</code></div>
+            <div style="background:#F5B731;color:#111A2E"><code>#F5B731</code></div>
+            <div style="background:#F4F5F2;color:#111A2E"><code>#F4F5F2</code></div>
+            <div style="background:#E3E9F6;color:#111A2E"><code>#E3E9F6</code></div>
+            <div style="background:#111A2E;color:#F4F5F2"><code>#111A2E</code></div>
+          </div>
+          <div class="typo">
+            <span class="aa" style="font-family:'Geist',sans-serif;font-weight:600;letter-spacing:-.03em">Aa</span>
+            <span class="aa" style="font-family:'IBM Plex Mono',monospace;font-size:30px">12</span>
+            <div class="names"><strong>Geist</strong><span>headings and text · Geist Mono for times</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-body">
+        <div class="notes">
+          <div><h3>Hero</h3><p>The welcome beside a live card, “Next at Kurukulla”, with time, teacher, how to join and a countdown. It sits over the stupa garden photo but never covers the stupa.</p></div>
+          <div><h3>Programme</h3><p>A two-week planner: pick a day, filter for in person or online. Lapis is the wordmark's blue; jade means online.</p></div>
+          <div class="sig"><h3>Signature: the lunar dial</h3><p>A dial of the Tibetan month that turns as you scroll, stopping at each coming puja with its real date: Lhabab Duchen, Tara, Guru Puja, Medicine Buddha, Lama Tsongkhapa Day.</p></div>
+          <div><h3>Best if</h3><p>Most visitors arrive on a phone and want to know what is on, when, and whether they can join from home.</p></div>
+        </div>
+        <div class="preview" data-dir="b"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="dir" id="sanctuary">
+    <div class="wrap">
+      <div class="dir-head">
+        <div>
+          <p class="label">Direction C · Immersive and contemplative</p>
+          <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.01em">Sanctuary</h2>
+          <p class="tag">An evening visit to the center. Night blue and the gold of butter lamps; a single, unhurried scroll from the street, through the garden, into the shrine room and out again, ending on the dedication.</p>
+          <div class="chips"><span>Contemplative</span><span>Cinematic</span><span>Spacious</span><span>Memorable</span></div>
+        </div>
+        <div class="specimen">
+          <div class="swatches">
+            <div style="background:#0B0F1E;color:#F3EDE1"><code>#0B0F1E</code></div>
+            <div style="background:#121831;color:#F3EDE1"><code>#121831</code></div>
+            <div style="background:#D9A54A;color:#0B0F1E"><code>#D9A54A</code></div>
+            <div style="background:#F3EDE1;color:#0B0F1E"><code>#F3EDE1</code></div>
+            <div style="background:#5CC2B5;color:#0B0F1E"><code>#5CC2B5</code></div>
+            <div style="background:#3E0F17;color:#F3EDE1"><code>#3E0F17</code></div>
+          </div>
+          <div class="typo">
+            <span class="aa" style="font-family:'Instrument Serif',Georgia,serif">Aa</span>
+            <span class="aa" style="font-family:'Albert Sans',sans-serif;font-size:34px">Aa</span>
+            <div class="names"><strong>Instrument Serif</strong><span>headings · Albert Sans text</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dir-body">
+        <div class="notes">
+          <div class="sig"><h3>Signature: through the cloud window</h3><p>The homepage opens on the garden seen through an orange Tibetan cloud window. Scrolling opens the frame to full width and carries you through the window into the stupa garden. On a phone it arrives at the stupa, shown whole.</p></div>
+          <div><h3>Programme</h3><p>“Coming up” with large dates and the holy days in gold, then ways to practise as a gallery that moves sideways as you scroll.</p></div>
+          <div><h3>Teacher and stupa</h3><p>Geshe-la's photograph holds while his story moves on, changing with each chapter. The stupa is revealed from its base to its spire.</p></div>
+          <div><h3>Best if</h3><p>The site should feel like arriving at the center: quiet, beautiful, and different from any other center's website.</p></div>
+        </div>
+        <div class="preview" data-dir="c"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="care" id="care">
+    <div class="wrap care-grid">
+      <div>
+        <div class="section-head">
+          <h2>Teachers and holy objects, placed with care</h2>
+          <p>Images of the Buddha, the stupa and our teachers are not decoration. These are the rules all three directions follow.</p>
+        </div>
+        <div class="care-photos">
+          <figure><img src="assets/img/lama-zopa.webp" alt="Kyabje Lama Zopa Rinpoche" loading="lazy" width="680" height="1020"><figcaption>Lineage first</figcaption></figure>
+          <figure><img src="assets/img/geshe-throne-600.webp" alt="Geshe Tenley on the teaching throne" loading="lazy" width="600" height="818"><figcaption>Teachers whole</figcaption></figure>
+          <figure><img class="contain" src="assets/img/stupa-tall-600.webp" alt="The Kalachakra Stupa for World Peace, whole" loading="lazy" width="600" height="1067"><figcaption>Stupa uncropped</figcaption></figure>
+        </div>
+      </div>
+      <ul class="rules">
+        <li><b>Never cropped, never covered</b><span>The stupa, Buddha images and teachers are shown whole. No text, buttons or cards sit over them; in B the live card only overlaps trees and lawn, and on phones it sits below the photograph.</span></li>
+        <li><b>Lineage above the teacher</b><span>Lama Yeshe and Lama Zopa Rinpoche, the FPMT's founders, appear before Geshe Tenley, and His Holiness is named first in the tradition.</span></li>
+        <li><b>High on the page, never at the feet</b><span>No holy images in footers or as background texture. The pages close on the dedication instead.</span></li>
+        <li><b>Real photographs, credited</b><span>Every photo is Kurukulla's own, from the current and the 2021 sites and the center's YouTube teachings. The two stupa photographs by Nick Ribush are credited under their licence.</span></li>
+        <li><b>Gentle motion</b><span>Holy objects move slowly or not at all. With “reduce motion” switched on, every scroll effect becomes a still page with the same content.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="compare" id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Side by side</h2>
+        <p>All three cover the same content and work on phones. They differ in mood, in how much they change for regular visitors, and in build effort.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th scope="col">A · Hearth</th><th scope="col">B · Clear Light</th><th scope="col">C · Sanctuary</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Feels like</th><td>A printed feature about the house</td><td>A calm, well-made app</td><td>An evening visit to the garden</td></tr>
+            <tr><th scope="row">Hero</th><td>Title page, then the house</td><td>Welcome beside “Next at Kurukulla”</td><td>Through the cloud window</td></tr>
+            <tr><th scope="row">Programme</th><td>This week, day by day</td><td>Two-week planner with filters</td><td>Coming up, with large dates</td></tr>
+            <tr><th scope="row">Signature</th><td>Prayer-flag chapter line</td><td>Lunar dial of puja days</td><td>Scroll into the stupa garden</td></tr>
+            <tr><th scope="row">Change for regulars</th><td><span class="dots">●○○</span> small</td><td><span class="dots">●●○</span> moderate</td><td><span class="dots">●●●</span> large</td></tr>
+            <tr><th scope="row">WordPress effort</th><td><span class="dots">●○○</span> lowest</td><td><span class="dots">●●○</span> medium</td><td><span class="dots">●●○</span> medium</td></tr>
+            <tr><th scope="row">Photography needs</th><td>A few good photos per chapter</td><td>Works with what exists today</td><td>Benefits from a new evening shoot</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="shared" id="shared">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Shared by all three</h2>
+        <p>These hold whichever direction you choose.</p>
+      </div>
+      <div class="shared-grid">
+        <div><h3>One calendar, everywhere</h3><p>The homepage week, the planner and the weekly email come from the same events, so updating the programme happens once.</p></div>
+        <div><h3>How to join, at a glance</h3><p>In person, online or both, on every event. Zoom and Google Meet links one tap away on each event page.</p></div>
+        <div><h3>Holy days and the lunar calendar</h3><p>Pujas and Buddha days are marked and explained, with practice advice from Lama Zopa Rinpoche linked where it exists.</p></div>
+        <div><h3>The news, honoured</h3><p>The announcement about Lama Zopa Rinpoche's reincarnation has a dignified place near the top, with the recommended prayers.</p></div>
+        <div><h3>Accessible and fast</h3><p>WCAG AA contrast, keyboard and screen-reader friendly, motion that respects “reduce motion”. Images are compressed WebP and load as needed.</p></div>
+        <div><h3>No tracking</h3><p>These pages use no analytics, pixels or cookies, and are hidden from search engines. The finished site can stay just as private.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="next" id="next">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Next steps</h2>
+        <p>A direction can be taken as it is, or combined. For example, B's planner works inside A, and A's prayer-flag line could hang over C.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Tell us what resonates</h3><p>Which direction feels most like Kurukulla, and what you would borrow from the others.</p></li>
+        <li><span class="n">2</span><h3>One round of refinement</h3><p>We refine the chosen direction with you and add the other pages: programs, teachers, the stupa, giving.</p></li>
+        <li><span class="n">3</span><h3>Build and hand over</h3><p>A WordPress site your volunteers can update easily, with your calendar, membership and newsletter moved across.</p></li>
+      </ol>
+      <p class="contact">We would be glad to talk it through: <a href="mailto:matt@mindfuldesign.me">matt@mindfuldesign.me</a></p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Design directions for Kurukulla Center for Tibetan Buddhist Studies</span>
+    <span>Mindful Design · October 2026</span>
+  </div>
+</footer>
+<script>
+(function () {
+  const DESK = 1440, PHONE = 390;
+  const URLS = { a: 'a/home.html', b: 'b/home.html', c: 'c/home.html' };
+  document.querySelectorAll('.preview').forEach((el) => {
+    const dir = el.dataset.dir;
+    let device = 'desktop';
+    el.innerHTML = `
+      <div class="pv-tools">
+        <div class="seg" role="group" aria-label="Device"><button type="button" data-device="desktop" aria-pressed="true">Desktop</button><button type="button" data-device="mobile" aria-pressed="false">Phone</button></div>
+        <a class="open-link" href="${URLS[dir]}" target="_blank" rel="noopener">Open full page ↗</a>
+      </div>
+      <div class="frame"><div class="chrome"><i></i><i></i><i></i><span>kurukulla.org</span></div><div class="viewport"><iframe title="Direction ${dir.toUpperCase()} homepage preview" loading="lazy" src="${URLS[dir]}"></iframe></div></div>
+      <p class="pv-hint">Scroll inside the frame. Links and controls work.</p>`;
+    const frame = el.querySelector('.frame'), vp = el.querySelector('.viewport'), iframe = el.querySelector('iframe');
+    function fit() {
+      const w = vp.clientWidth;
+      const base = device === 'desktop' ? DESK : PHONE;
+      const s = w / base;
+      const h = device === 'desktop' ? Math.min(820, Math.round(w * 0.64)) : Math.round(w * 2.05);
+      iframe.style.width = base + 'px';
+      iframe.style.height = Math.round(h / s) + 'px';
+      iframe.style.transform = `scale(${s})`;
+      vp.style.height = h + 'px';
+    }
+    el.querySelectorAll('[data-device]').forEach((b) => b.addEventListener('click', () => {
+      device = b.dataset.device;
+      el.querySelectorAll('[data-device]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      frame.classList.toggle('mobile', device === 'mobile');
+      fit();
+    }));
+    new ResizeObserver(fit).observe(vp);
+    fit();
+  });
+})();
+</script>
+</body>
+</html>

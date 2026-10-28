@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Kurukulla Center · Direction B · Clear Light</title>
+<meta name="description" content="Design direction B for Kurukulla Center for Tibetan Buddhist Studies, Medford. Prepared by Mindful Design.">
+<link rel="icon" href="../assets/img/emblem-240.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="../assets/data.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top" aria-label="Kurukulla Center for Tibetan Buddhist Studies, home">
+      <img src="../assets/img/emblem-240.webp" alt="" width="44" height="32">
+      <span>Kurukulla Center</span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#week">Calendar</a><a href="#start">Learn</a><a href="#teacher">Teacher</a><a href="#visit">Visit</a><a href="#give">Give</a>
+    </nav>
+    <a class="btn btn-ghost" href="#newsletter">Weekly email</a>
+    <a class="btn btn-lapis" href="#give">Donate</a>
+  </div>
+</header>
+
+<!-- phone: app-style tab bar -->
+<nav class="tabbar" aria-label="Sections">
+  <a href="#top" data-tab><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Today</a>
+  <a href="#week" data-tab><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Week</a>
+  <a href="#start" data-tab><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5C4 5 5 4 6.5 4H12v16H6.5C5 20 4 19 4 17.5zM12 4h5.5C19 4 20 5 20 6.5v11c0 1.5-1 2.5-2.5 2.5H12"/></svg>Learn</a>
+  <a href="#visit" data-tab><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Visit</a>
+  <a href="#give" data-tab><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Give</a>
+</nav>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="h-h">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <a class="news" href="#">Joyful news: the reincarnation of Lama Zopa Rinpoche is confirmed <span aria-hidden="true">→</span></a>
+        <h1 id="h-h">Study and practise Tibetan Buddhism, in Medford and online</h1>
+        <p class="sub">Teachings with Geshe Tenley, classes for newcomers and pujas through the month. Join at the center or from home.</p>
+        <div class="cta-row"><a class="btn btn-lapis btn-lg" href="#week">See what's on</a><a class="btn btn-ghost btn-lg" href="#start">New here? Start here</a></div>
+      </div>
+      <div class="hero-stage" aria-label="Next at Kurukulla">
+        <figure class="stage-photo" data-depth="0.06">
+          <img src="../assets/img/stupa-fall.webp" srcset="../assets/img/stupa-fall-800.webp 800w, ../assets/img/stupa-fall.webp 1600w" sizes="(min-width: 960px) 46vw, 100vw" alt="The Kalachakra Stupa for World Peace and the Tara pond in the garden in autumn" width="1600" height="898" fetchpriority="high">
+        </figure>
+        <article class="now-card" id="nowCard" data-depth="-0.04" aria-live="polite"></article>
+        <p class="photo-credit">Photo: Nick Ribush, CC BY-SA 3.0</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="week" id="week" aria-labelledby="wk-h">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2 id="wk-h">The next two weeks</h2>
+        <p>Pick a day. Everything marked <span class="chip chip-both">In person &amp; online</span> has a Zoom link on its page.</p>
+      </div>
+      <div class="planner" data-reveal>
+        <div class="planner-top">
+          <div class="days" id="days" role="tablist" aria-label="Choose a day"></div>
+          <div class="filters" role="group" aria-label="How to join">
+            <button type="button" data-f="all" aria-pressed="true">All</button>
+            <button type="button" data-f="center" aria-pressed="false">In person</button>
+            <button type="button" data-f="online" aria-pressed="false">Online</button>
+          </div>
+        </div>
+        <div class="agenda" id="agenda" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature: a lunar dial. Pujas follow the Tibetan calendar; scrolling turns the month to each coming observance. -->
+  <section class="moon" id="moon" aria-labelledby="m-h">
+    <div class="moon-track">
+      <div class="moon-pin">
+        <div class="wrap moon-grid">
+          <div class="moon-copy">
+            <h2 id="m-h">The month by the moon</h2>
+            <p>Pujas are held on days of the Tibetan lunar calendar: Tara on the 8th, Guru Puja on the 10th and 25th, Medicine Buddha on the 15th. Scroll to turn the month to each one.</p>
+            <ol class="stops" id="stops"></ol>
+          </div>
+          <div class="dial-wrap">
+            <svg class="dial" id="dial" viewBox="-160 -160 320 320" role="img" aria-labelledby="dialTitle">
+              <title id="dialTitle">Tibetan lunar month with puja days marked</title>
+              <g id="dialRot"></g>
+              <circle class="dial-hub" r="64"/>
+            </svg>
+            <div class="dial-read" id="dialRead" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="start" id="start" aria-labelledby="s-h">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2 id="s-h">New to Buddhism? Start here</h2>
+        <p>Classes are open to everyone. This is the path most people take at Kurukulla, and you can join at any point.</p>
+      </div>
+    </div>
+    <div class="path-rail" tabindex="0" aria-label="Learning path, scroll sideways">
+      <ol class="path">
+        <li class="step" data-reveal>
+          <span class="n">1</span>
+          <p class="step-when">Saturdays 3 to 5 PM · Online</p>
+          <h3>Introduction to Buddhism</h3>
+          <p>“Your Life, Your Mind, Your Choice” with Seán González. Five Saturdays per module; drop in for one or all. Module 4, The Dharma and AI, starts 7 November.</p>
+          <a class="more" href="#">About the course</a>
+        </li>
+        <li class="step" data-reveal>
+          <span class="n">2</span>
+          <p class="step-when">Tuesdays 7 PM · Free</p>
+          <h3>Yoga &amp; Meditation</h3>
+          <p>Mixed-level yoga with Canan Ayar, ending in twenty minutes of guided meditation. Nothing to bring but comfortable clothes.</p>
+          <a class="more" href="#">About the class</a>
+        </li>
+        <li class="step" data-reveal>
+          <span class="n">3</span>
+          <p class="step-when">FPMT foundation course</p>
+          <h3>Discovering Buddhism</h3>
+          <p>Fourteen mini-courses that bring study and practice together, for entry-level students.</p>
+          <a class="more" href="#">See the modules</a>
+        </li>
+        <li class="step" data-reveal>
+          <span class="n">4</span>
+          <p class="step-when">Sundays 10 AM · Wednesdays 7 PM</p>
+          <h3>Main program with Geshe Tenley</h3>
+          <p>Shantideva's <i>Guide to the Bodhisattva's Way of Life</i>, Chapter 8, and the lojong text <i>The Wheel of Sharp Weapons</i>.</p>
+          <a class="more" href="#">Current teachings</a>
+        </li>
+        <li class="step" data-reveal>
+          <span class="n">5</span>
+          <p class="step-when">Through the year</p>
+          <h3>Practice together</h3>
+          <p>Prostrations to the Thirty-Five Buddhas, pujas, the Eight Mahayana Precepts on Buddha days, and retreats.</p>
+          <a class="more" href="#">Pujas and holy days</a>
+        </li>
+      </ol>
+      <div class="path-progress" aria-hidden="true"><span id="pathBar"></span></div>
+    </div>
+  </section>
+
+  <section class="teacher" id="teacher" aria-labelledby="t-h">
+    <div class="wrap teacher-grid">
+      <figure class="t-photo" data-reveal>
+        <img src="../assets/img/geshe-smile.webp" alt="Geshe Tenley smiling, hands folded, teaching from his seat in the gompa" loading="lazy" width="820" height="720">
+      </figure>
+      <div class="t-card" data-reveal>
+        <p class="role">Resident teacher since 2010</p>
+        <h2 id="t-h">Geshe Ngawang Tenley</h2>
+        <p>Ordained in 1990, Geshe-la studied at Sera Jey Monastic University and received his geshe degree in 2008. He took full ordination from His Holiness the Dalai Lama and was appointed resident teacher on the advice of Lama Zopa Rinpoche.</p>
+        <p>He is known for his approachability and kindheartedness, and teaches twice a week.</p>
+        <dl class="t-facts">
+          <div><dt>Sundays</dt><dd>10 AM to 12 PM</dd></div>
+          <div><dt>Wednesdays</dt><dd>7 to 9 PM</dd></div>
+          <div><dt>Join</dt><dd>In person or Zoom</dd></div>
+        </dl>
+        <div class="lineage">
+          <img src="../assets/img/lama-zopa.webp" alt="Kyabje Lama Zopa Rinpoche" loading="lazy" width="680" height="1020">
+          <p><b>Spiritual director: Kyabje Lama Zopa Rinpoche.</b> Kurukulla is part of the FPMT, founded by Lama Thubten Yeshe and Lama Zopa Rinpoche in the tradition of Lama Tsongkhapa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="v-h">
+    <div class="wrap visit-grid">
+      <div class="v-card" data-reveal>
+        <h2 id="v-h">Visit the center</h2>
+        <p class="addr">68 Magoun Avenue<br>Medford, MA 02155</p>
+        <div class="v-actions">
+          <button class="btn btn-lapis" type="button" id="copyAddr">Copy address</button>
+          <a class="btn btn-ghost" href="https://www.openstreetmap.org/search?query=68%20Magoun%20Avenue%20Medford%20MA" rel="noopener">Open in maps</a>
+        </div>
+        <div class="tabs" role="tablist" aria-label="How to get here">
+          <button role="tab" id="tab-car" aria-controls="p-car" aria-selected="true">Car</button>
+          <button role="tab" id="tab-t" aria-controls="p-t" aria-selected="false" tabindex="-1">T &amp; bus</button>
+          <button role="tab" id="tab-air" aria-controls="p-air" aria-selected="false" tabindex="-1">Airport</button>
+        </div>
+        <div class="panel" role="tabpanel" id="p-car" aria-labelledby="tab-car"><p>I-93 to exit 32. Route 60 east to Park Street, right on Park, then left on Magoun Avenue. The big yellow house is on the left; park in the driveway if there is room.</p></div>
+        <div class="panel" role="tabpanel" id="p-t" aria-labelledby="tab-t" hidden><p>Orange Line to Wellington, then the 134 bus to Pembroke and Riverside and walk two blocks. From Medford Square (buses 94, 95, 96) it is a 10 to 15 minute walk.</p></div>
+        <div class="panel" role="tabpanel" id="p-air" aria-labelledby="tab-air" hidden><p>Blue Line to State, change to the Orange Line outbound. A taxi from Logan takes about 20 minutes without traffic.</p></div>
+        <p class="v-contact"><a href="tel:+16176240177">(617) 624-0177</a> · <a href="mailto:info@kurukulla.org">info@kurukulla.org</a></p>
+      </div>
+      <div class="v-photos">
+        <figure class="v-house" data-reveal><img src="../assets/img/house-800.webp" srcset="../assets/img/house-800.webp 800w, ../assets/img/house.webp 1600w" sizes="(min-width: 960px) 30vw, 60vw" alt="The front of Kurukulla Center, a yellow house with a painted Tibetan-style sign and prayer flags" loading="lazy" width="800" height="530"></figure>
+        <figure class="v-wheels" data-reveal><img src="../assets/img/prayer-wheels.webp" alt="Red and gold prayer wheels in the garden, turned by a visitor" loading="lazy" width="1200" height="675"></figure>
+        <figure class="v-gompa" data-reveal><img src="../assets/img/gompa.webp" alt="The gompa during a teaching, students seated on cushions before the altar" loading="lazy" width="960" height="720"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="give" id="give" aria-labelledby="g-h">
+    <div class="wrap give-grid">
+      <div class="g-copy" data-reveal>
+        <h2 id="g-h">Keep the doors open</h2>
+        <p>Kurukulla is run by volunteers and costs $8,000 to $9,000 a month to keep going. Gifts support Geshe Tenley, our translator Damchoe, the house and the stupa garden.</p>
+        <p class="fine">501(c)(3) nonprofit. Gifts are tax-deductible as the law allows.</p>
+      </div>
+      <form class="g-card" data-reveal novalidate>
+        <div class="seg" role="group" aria-label="Frequency">
+          <button type="button" data-freq="once" aria-pressed="true">One time</button>
+          <button type="button" data-freq="month" aria-pressed="false">Monthly</button>
+        </div>
+        <fieldset class="amounts">
+          <legend class="sr">Amount</legend>
+          <label><input type="radio" name="amt" value="25"><span>$25</span></label>
+          <label><input type="radio" name="amt" value="54"><span>$54</span></label>
+          <label><input type="radio" name="amt" value="108" checked><span>$108</span></label>
+          <label><input type="radio" name="amt" value="250"><span>$250</span></label>
+        </fieldset>
+        <button class="btn btn-lapis btn-lg btn-block" type="submit" id="giveBtn">Give $108</button>
+        <p class="g-msg" role="status"></p>
+        <details class="members">
+          <summary>Or become a member</summary>
+          <ul id="memberList"></ul>
+        </details>
+      </form>
+    </div>
+  </section>
+
+  <section class="news-sec" id="newsletter" aria-labelledby="n-h">
+    <div class="wrap">
+      <form class="n-card" data-reveal novalidate>
+        <div>
+          <h2 id="n-h">This week at Kurukulla, in your inbox</h2>
+          <p>One email a week with teachings, pujas and news.</p>
+        </div>
+        <div class="n-field">
+          <label class="sr" for="n-email">Email address</label>
+          <input id="n-email" type="email" autocomplete="email" placeholder="Email address" required>
+          <button class="btn btn-lapis" type="submit">Subscribe</button>
+        </div>
+        <p class="n-msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="f-brand">
+      <img src="../assets/img/logo.webp" alt="Kurukulla Center for Tibetan Buddhist Studies" width="280" height="79" loading="lazy">
+      <p>May all sentient beings be free from suffering and its causes.</p>
+    </div>
+    <nav aria-label="Footer"><b>Center</b><a href="#">About</a><a href="#teacher">Teachers</a><a href="#">Stupa</a><a href="#">History</a></nav>
+    <nav aria-label="Footer, learn"><b>Learn</b><a href="#week">Calendar</a><a href="#start">Programs</a><a href="#">Audio teachings</a><a href="#">Video archive</a></nav>
+    <div><b>Contact</b><p>68 Magoun Avenue<br>Medford, MA 02155<br>(617) 624-0177<br>info@kurukulla.org</p></div>
+  </div>
+  <div class="wrap foot-base"><span>An FPMT center · © Kurukulla Center</span><span>Design direction B by Mindful Design</span></div>
+</footer>
+</body>
+</html>
